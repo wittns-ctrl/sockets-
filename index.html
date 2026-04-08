@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>websockets implementation</title>
+</head>
+<body>
+    <h1>socket basics</h1>
+    <button onclick = 'message()'>send hello</button>
+    <div id="message"></div>
+    <script>
+        const socket =  new WebSocket("ws://localhost:2367")
+
+        socket.onopen = (event)=>{
+            console.log('connected to websocket serverl')
+        }
+       socket.onmessage = (event)=>{
+        const msgDiv = document.getElementById('message').innerHTML += `<p> ${event.data} </p>`
+       }
+
+       function message(){
+        socket.send('hello from browser')
+       }
+    </script>
+</body>
+</html>
