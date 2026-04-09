@@ -17,7 +17,7 @@ wss.on('connection',(ws)=>{
     ws.on('message',(data)=>{
         console.log(`server received:${data}`)
 
-        ws.send(`message:${data}`)
+        ws.send(`message: ${data}`)
     })
     
     ws.on('close',()=>{

@@ -7,16 +7,16 @@
 </head>
 <body>
     <h1>socket basics</h1>
-    <button onclick = 'message()'>send hello</button>
+    <button onclick = "message()">send hello</button>
     <div id="message"></div>
     <script>
-        const socket =  new WebSocket("ws://localhost:2367")
+        const socket =  new WebSocket("ws://localhost:5500")
 
         socket.onopen = (event)=>{
-            console.log('connected to websocket serverl')
+            console.log('connected to websocket server')
         }
        socket.onmessage = (event)=>{
-        const msgDiv = document.getElementById('message').innerHTML += `<p> ${event.data} </p>`
+        const msgDiv = document.getElementById('message').innerHTML = `<p> ${event.data} </p>`
        }
 
        function message(){
